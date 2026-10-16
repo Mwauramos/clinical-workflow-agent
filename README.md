@@ -52,8 +52,5 @@ Python 3.11
 
 This system is for research and educational purposes only. It is not intended for clinical decision-making without physician oversight. Every case flagged as high-risk by the validation agent requires human physician review before any management decisions are made. The system does not replace clinical judgment.
 
-## Portfolio Context
-
-Project 5 of 12 in a Computational Epidemiology and Health Data Science portfolio under ZENIK.AI. This project demonstrates production-grade agentic AI architecture applied to East African health systems.
 
 GitHub: github.com/Mwauramos | Contact: mwauramos.n@gmail.com
