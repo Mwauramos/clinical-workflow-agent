@@ -7,18 +7,29 @@ https://clinical-workflow-agent-rxzywwzktk23ebkbpnjscc.streamlit.app/
 
 ## Agent Architecture
 
+```
 Patient Symptom Input
-↓
-Retrieval Agent searches clinical guidelines and WHO protocols
-↓
-Reasoning Agent generates structured differential diagnosis
-↓
-Validation Agent performs safety check and flags high-risk cases
-↓
-Human Review Gate escalates cases requiring physician oversight
-↓
-Recommendation Agent produces clinical handover document with citations
-
+        |
+        v
+Retrieval Agent
+Searches clinical guidelines and WHO protocols
+        |
+        v
+Reasoning Agent
+Generates structured differential diagnosis
+        |
+        v
+Validation Agent
+Performs safety check and flags high-risk cases
+        |
+        v
+Human Review Gate
+Escalates cases requiring physician oversight
+        |
+        v
+Recommendation Agent
+Produces clinical handover document with citations
+```
 
 ## What Each Agent Does
 
