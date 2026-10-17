@@ -112,21 +112,31 @@ Perform safety validation.""")
 
 
 def recommendation_agent(state: dict) -> dict:
-    """Generates final clinical recommendation with citations."""
+    """Generates final clinical recommendation with case-specific medication guidance."""
     llm = get_llm()
 
     messages = [
         SystemMessage(content="""You are a clinical recommendation specialist
         for primary and secondary care in Kenya. Generate a final structured
         clinical recommendation that includes:
+
         1. Most likely diagnosis with confidence level
         2. Recommended investigations (with availability in Kenya context)
-        3. First-line treatment options following Kenya clinical guidelines
-        4. Referral criteria
-        5. Follow-up plan
-        6. Patient education points
+        3. First-line treatment options following Kenya Standard Treatment Guidelines 2022
+        4. Possible medications suited to this specific case
+           - List medications from the Kenya Standard Treatment Guidelines
+           - Include typical dosage ranges for the patient's age and weight where relevant
+           - Note any case-specific factors that influence medication choice
+             (e.g. age under 5, pregnancy, HIV status, severity indicators)
+           - End this section with: "Medication selection, exact dosage, and
+             duration must be confirmed by a licensed clinician based on full
+             patient assessment."
+        5. Referral criteria
+        6. Follow-up plan
+        7. Patient and caregiver education points
 
-        Always cite the guideline source for each recommendation.
+        Always cite the Kenya Standard Treatment Guidelines or relevant WHO
+        protocol as the source for each medication mentioned.
         Format professionally for a clinical handover document."""),
         HumanMessage(content=f"""Patient presentation: {state['patient_input']}
 
@@ -136,11 +146,11 @@ Differential diagnosis: {state['differential_diagnosis'][:500]}...
 
 Safety validation: {state['validation_result']}
 
-Generate final clinical recommendation.""")
+Generate final clinical recommendation with case-specific medication guidance.""")
     ]
 
     response = llm.invoke(messages)
-    print(f"[Recommendation Agent] Final recommendation generated.")
+    print(f"[Recommendation Agent] Final recommendation with medication guidance generated.")
 
     return {
         **state,
