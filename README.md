@@ -7,18 +7,29 @@ https://clinical-workflow-agent-rxzywwzktk23ebkbpnjscc.streamlit.app/
 
 ## Agent Architecture
 
+```
 Patient Symptom Input
-↓
-Retrieval Agent searches clinical guidelines and WHO protocols
-↓
-Reasoning Agent generates structured differential diagnosis
-↓
-Validation Agent performs safety check and flags high-risk cases
-↓
-Human Review Gate escalates cases requiring physician oversight
-↓
-Recommendation Agent produces clinical handover document with citations
-
+        |
+        v
+Retrieval Agent
+Searches clinical guidelines and WHO protocols
+        |
+        v
+Reasoning Agent
+Generates structured differential diagnosis
+        |
+        v
+Validation Agent
+Performs safety check and flags high-risk cases
+        |
+        v
+Human Review Gate
+Escalates cases requiring physician oversight
+        |
+        v
+Recommendation Agent
+Produces clinical handover document with citations
+```
 
 ## What Each Agent Does
 
@@ -52,8 +63,5 @@ Python 3.11
 
 This system is for research and educational purposes only. It is not intended for clinical decision-making without physician oversight. Every case flagged as high-risk by the validation agent requires human physician review before any management decisions are made. The system does not replace clinical judgment.
 
-## Portfolio Context
-
-Project 5 of 12 in a Computational Epidemiology and Health Data Science portfolio under ZENIK.AI. This project demonstrates production-grade agentic AI architecture applied to East African health systems.
 
 GitHub: github.com/Mwauramos | Contact: mwauramos.n@gmail.com
